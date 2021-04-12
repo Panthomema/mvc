@@ -67,7 +67,7 @@ class UserController
         // "INSERT ...."
         // "UPDATE ...."
         //redirigir a la lista
-        header('Location: /user/index');
+        header('Location: /product/index');
     }
 
     public function edit($arguments)
