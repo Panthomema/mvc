@@ -45,6 +45,19 @@ class Product extends Model
         return $statement->execute($data);
     }
 
+    public function save()
+    {
+        $db = Product::db();
+        $statement = $db->prepare('UPDATE products SET `name`=:name, `type_id`=:type_id, `price`=:price WHERE id=:id');
+        $data = [
+            ':id' => $this->id,
+            ':name' => $this->name,
+            ':type_id' => $this->type_id,
+            ':price' => $this->price,
+        ];
+        return $statement->execute($data);
+    }
+
 
 
     public function delete()
@@ -52,5 +65,12 @@ class Product extends Model
         $db = self::db();
         $statement = $db->prepare('DELETE FROM products WHERE id=:id');        
         return $statement->execute([':id' => $this->id]);        
+    }
+
+    public static function destroy($id)
+    {
+        $db = Product::db();
+        $statement = $db->prepare('DELETE FROM products WHERE id=:id');        
+        return $statement->execute([':id' => $id]);        
     }
 }

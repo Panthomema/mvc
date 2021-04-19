@@ -4,26 +4,21 @@
 <main role="main" class="container">    
     <h1>Edición de producto</h1>
 
-    <form class="form" action="/user/update/<?= $user->id ?>" method="POST">
+    <form class="form" action="/product/update/<?= $product->id ?>" method="POST">
 
     <div class="form-group">
         <label for="name">Nombre:</label>
-        <input class="form-control" type="text" value="<?= $user->name ?>" name="name"> 
+        <input class="form-control" type="text" value="<?= $product->name ?>" name="name"> 
     </div>
 
     <div class="form-group">
-        <label for="surname">Apellidos:</label>
-        <input class="form-control" type="text" value="<?= $user->surname ?>" name="surname"> 
+        <label for="type_id">Tipo:</label>
+        <input class="form-control" type="text" value="<?= $product->type_id ?>" name="type_id"> 
     </div>
 
     <div class="form-group">
-        <label for="email">Email:</label>
-        <input class="form-control" type="text" value="<?= $user->email ?>" name="email"> 
-    </div>
-
-    <div class="form-group">
-        <label for="birthdate">Fecha Nacimiento:</label>
-        <input class="form-control" type="text" value="<?= $user->birthdate ?>" name="birthdate"> 
+        <label for="price">Precio:</label>
+        <input class="form-control" type="text" value="<?= $product->price ?>" name="price"> 
     </div>
 
     <div class="form-group">

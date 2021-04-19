@@ -2,7 +2,7 @@
 <?php include('../views/parts/header.php'); ?>
 <!-- Begin page content -->
 <main role="main" class="container">
-  <h1>Lista de usuarios  
+  <h1>Lista de productos  
       <a class="btn btn-primary float-right" href="/product/create">Nuevo</a>
   </h1>
   <table class="table table-striped">
