@@ -1,4 +1,8 @@
 <?php
 #Fichero `mvc/public/index.php`
 // echo 'Contenido en public<br>';
-require "../start.php";
+
+use \Core\App;
+require "../core/App.php";
+
+$app = new App();

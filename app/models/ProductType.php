@@ -1,10 +1,12 @@
 <?php
 namespace App\Models;
 
-use PDO;
-use PDOException;
+require_once '../core/Model.php';
 
-class ProductType
+use PDO;
+use Core\Model;
+
+class ProductType extends Model
 {
     public function __construct()
     {
@@ -15,33 +17,21 @@ class ProductType
     {
         $db = ProductType::db();
         $statement = $db->query('SELECT * FROM producttypes');
-        $producttypes = $statement->fetchAll(PDO::FETCH_CLASS, User::class);
+        $producttypes = $statement->fetchAll(PDO::FETCH_CLASS, ProductType::class);
 
         return $producttypes;        
     }
 
     public static function find($id)
     {
-        $db = User::db();
+        $db = ProductType::db();
 
         $statement = $db->prepare('SELECT * FROM producttypes WHERE id=:id');
         $statement->execute(array(':id' => $id));        
-        $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
+        $statement->setFetchMode(PDO::FETCH_CLASS, ProductType::class);
         $producttype = $statement->fetch(PDO::FETCH_CLASS);
         return $producttype;
     }
 
-    protected static function db()
-    {
-        $dsn = 'mysql:dbname=mvc;host=db';
-        $usuario = 'root';
-        $contraseña = 'password';
-        try {
-            $db = new PDO($dsn, $usuario, $contraseña);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo 'Falló la conexión: ' . $e->getMessage();
-        }
-        return $db;
-    }
+
 }
